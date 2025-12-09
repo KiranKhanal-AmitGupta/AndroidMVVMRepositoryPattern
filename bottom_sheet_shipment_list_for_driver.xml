@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="@dimen/margin_120_x_1"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_shipment"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_8_x_1"
+        android:background="@drawable/bg_shipment_rounded_corner"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="@dimen/margin_8_x_2"
+            android:layout_marginTop="@dimen/margin_8_x_1"
+            android:layout_marginEnd="@dimen/margin_8_x_2"
+            android:src="@drawable/shipment_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_8_x_5"
+        android:background="@drawable/bg_rounded_corner"
+        app:cardCornerRadius="@dimen/corner_radius_xxlarge"
+        android:layout_marginBottom="-44dp"
+        app:cardElevation="@dimen/margin_8_x_2"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_hopper_image"
+                android:layout_width="@dimen/mini_image_view_width"
+                android:layout_height="@dimen/mini_image_view_height"
+                android:layout_marginTop="@dimen/margin_8_x_2"
+                android:layout_marginEnd="@dimen/margin_8_x_2"
+                android:src="@drawable/hopper_shipment_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_nearby_shipment"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8_x_1"
+                android:text="@string/nearby_shipment_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_picked_up_shipment" />
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/arrow_up"
+                app:layout_constraintBottom_toBottomOf="@id/tv_nearby_shipment"
+                app:layout_constraintEnd_toStartOf="@id/tv_nearby_shipment"
+                app:layout_constraintTop_toTopOf="@id/tv_nearby_shipment"
+                />
+
+            <LinearLayout
+                android:id="@+id/ll_picked_up_shipment"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_shipment_rounded_corner_bottom"
+                android:gravity="center"
+                android:paddingStart="@dimen/margin_8_x_2"
+                android:paddingEnd="@dimen/margin_8_x_2"
+                android:paddingTop="@dimen/margin_4_x_1"
+                android:paddingBottom="@dimen/margin_4_x_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_picked_up_shipment"
+                    style="@style/TextViewStyle.BoldText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/medium_text" />
+            </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@android:color/transparent"
+                android:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/cl_top"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="44dp">
+                <include
+                    layout="@layout/pagination_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@id/iv_hopper_image"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_8_x_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/empty_view"
+                layout="@layout/empty_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
